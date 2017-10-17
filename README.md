@@ -9,3 +9,5 @@ Pending modules:
 - [ ] Include bowlers in the database
 - [ ] Function to add new players
 - [ ] Function to delete players
+
+Data collected from ESPN Cricinfo, [here](http://stats.espncricinfo.com/ci/engine/stats/index.html?class=11;team=6;template=results;type=batting).
