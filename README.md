@@ -10,4 +10,4 @@ Pending modules:
 - [ ] Function to add new players
 - [ ] Function to delete players
 
-Data collected from ESPN Cricinfo, [here](http://stats.espncricinfo.com/ci/engine/stats/index.html?class=11;team=6;template=results;type=batting).
+Data collected from ESPN Cricinfo, over [here](http://stats.espncricinfo.com/ci/engine/stats/index.html?class=11;team=6;template=results;type=batting).
