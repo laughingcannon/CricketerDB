@@ -6,7 +6,7 @@ db = sqlite3.connect(':memory:')
 db = sqlite3.connect('data/mydbms')
 
 cursor = db.cursor()
-cursor.execute("DROP TABLE batsmen")
+cursor.execute("DROP TABLE batsmen")	# Deleting the table if it exists
 cursor.execute('''
     CREATE TABLE batsmen(id INTEGER PRIMARY KEY, name TEXT,
                        matches INTEGER, runs INTEGER, hun INTEGER
@@ -15,24 +15,12 @@ cursor.execute('''
 db.commit()
 
 cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (101,'Tendulkar',664,34357,100)")
-print('First user inserted')
 cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (102,'Dravid',504,24064,48)")
 cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (103,'Ganguly',421,18433,38)")	
 cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (104,'Sehwag',363,16892,38)")
 cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (105,'Dhoni',473,15685,15)")
-print('Last user inserted')
-# cursor.execute('''SELECT * FROM batsmen''')
+print('Batsmen data inserted') # Check
 
-# user1 = cursor.fetchone() #retrieve the first row
-# print user1[0] #Print the first column retrieved(user's name)
-# all_rows = cursor.fetchall()
-# print "Om"
-# for row in all_rows:
-    # print row[0]
-#     print("%s",row[0]) # row[0] returns the first column in the query (name), row[1] returns email column.
-    #print('{0} : {1}, {2}, {3}, {4}'.format(row[0], row[1], row[2], row[3], row[4]))
-    #print type(row[0])
-    #print type(row[1])
 titles = ["ID","Name","Matches","Runs","Hundreds"]
 def helloCallBack():
    tkMessageBox.showinfo( "Hello Python", "Hello World")
@@ -46,7 +34,7 @@ def viewDB():
 	all_rows = cursor.fetchall()
 	for row in all_rows:
 		# print('{0} : {1}, {2}, {3}, {4}'.format(row[0], row[1], row[2], row[3], row[4]))
-		l = Label(w2, text=row)#str(row[0])+str(row[1]))
+		l = Label(w2, text=row)
 		l.pack()
 	l2 = Label(w2, text="Arrange by:")
 	l2.pack(side=LEFT)
@@ -62,7 +50,6 @@ def viewDB():
 	arr_hun.pack(side=LEFT, padx=10)
 
 	w2.mainloop()
-
 
 def viewNames():
 	w3 = Tk()
