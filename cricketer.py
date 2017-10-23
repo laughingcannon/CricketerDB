@@ -19,9 +19,9 @@ cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (102,'D
 cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (103,'Ganguly',421,18433,38)")	
 cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (104,'Sehwag',363,16892,38)")
 cursor.execute("INSERT INTO batsmen(id, name, matches, runs, hun) VALUES (105,'Dhoni',473,15685,15)")
-print('Batsmen data inserted') # Check
+print('Batsmen data inserted.') # Check
 
-titles = ["ID","Name","Matches","Runs","Hundreds"]
+titles = ["ID", "Name", "Matches", "Runs", "Hundreds"]
 def helloCallBack():
    tkMessageBox.showinfo( "Hello Python", "Hello World")
 
@@ -101,13 +101,17 @@ def viewHundreds():
 	w6.mainloop()
 
 """
-# def updatePlayerAdd(I,N,M,R,H):
+This section of code still needs work. Front-end and back-end do not seem to connect.
 
+# Function called by addPlayer - updates database.
+# def updatePlayerAdd(I,N,M,R,H): 
+
+# Function called by delPlayer - also updates database. Takes only ID to delete.
 def updatePlayerDel(I):
+	# Perform check to verify ID exists
+	
 	cursor.execute("DELETE FROM batsmen WHERE id = ? ", (I,))
 	viewDB()
-
-
 
 
 def addPlayer():
@@ -127,14 +131,14 @@ def addPlayer():
 	Label(frame1, text="ID").grid(row=0, column=0, sticky=W)
         iD= StringVar()
         idee = Entry(frame1, textvariable=iD)
-        idee.grid(row=1, column=1, sticky=W)
+        idee.grid(row=0, column=1, sticky=W)
         id_no = iD.get()
         print id_no
 
 	Label(frame1, text="Name").grid(row=1, column=0, sticky=W)
 	nameVar = StringVar()
 	name = Entry(frame1, textvariable=nameVar)
-        name.grid(row=0, column=1, sticky=W)
+        name.grid(row=1, column=1, sticky=W)
         n = nameVar.get()
         print n
 	
@@ -159,8 +163,7 @@ def addPlayer():
         hun_no = h.get()
         print hun_no        
 
-	
-	B = Button(win, text="Update",command=helloCallBack) #updatePlayerAdd(id_no,n,matches_no,runs_no,hun_no))
+	B = Button(win, text="Update",command=updatePlayerAdd(id_no,n,matches_no,runs_no,hun_no))
 	B.pack()
 	win.mainloop()
 
@@ -182,8 +185,11 @@ def delPlayer():
 	B.pack()
 	w.mainloop()
 	#commentend
+"""
 	
-
+"""
+Sample code for reference. Ignore this fragment.
+	
 	# frame1 = Frame(win)
  #    frame1.pack()
 
@@ -194,25 +200,13 @@ def delPlayer():
 """
 
 
-
-# def delPlayer():
-
-
-
-
-
-
-
-
-
-
 w = Tk()
 w.title("Cricketer's Database")
 fr = Frame(w, width=400, height=100)
 l = Label(w, text="Welcome to Cricketer's Database!")
 l.pack()
 view_db = Button(w, text ="View Database", command = viewDB)
-#add_pl = Button(w, text ="Add Player", command = addPlayer)
+# add_pl = Button(w, text ="Add Player", command = addPlayer)
 # del_pl = Button(w, text ="Delete Player", command = delPlayer)
 
 view_db.pack(side=BOTTOM)#side=LEFT, padx=10)
